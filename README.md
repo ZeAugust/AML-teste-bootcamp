@@ -47,5 +47,35 @@ A descrição dos compos pode ser encontrada em: https://www.portaldatransparenc
 
 Existem movimentações onde não é possível a identificação do nome e nem do documento do portador. Nesses casos o campo do documento encontra-se vazio e o compo referente ao nome do portado apresenta a mensagem "SEM INFORMACAO".
 
+![image](https://user-images.githubusercontent.com/93266575/150012927-85672825-06ea-4237-b792-f1ffb78f42c0.png)
+
 **G - É possível identificar o Órgão do portador do CPGF?**
+
+Sim. o Órgão do qual o portador é servidor está identificado com Órgão Subordinado.
+
+**H - Qual o nome do cujo código é 20402?**
+
+Trata-se da Agência Espacial Brasileira.
+
+![image](https://user-images.githubusercontent.com/93266575/150012253-6b7ebda8-1e9e-42d8-82f6-33f1d0e38193.png)
+
+
+**I - É possível identificar o Nome e Documento (CNPJ) dos favorecidos pela utilização do CPGF?**
+
+Sim. A identificação do nome do CNPJ está constando na 11ª coluna enquanto que nome dos favorecidos estão na 12ª.
+
+![image](https://user-images.githubusercontent.com/93266575/150013493-21fbf2f7-9cbf-4f5d-ad64-470094f31b84.png)
+
+Porém, nos casos em que foi concedido o sigilo da transação, o campo destinado ao CNPJ apresenta a numeração -11 e o campo destinado para o nome do favorecido contem a frase "Sigiloso".
+
+![image](https://user-images.githubusercontent.com/93266575/150015151-961280bb-49af-4661-9d30-3e2c1fa688d0.png)
+
+**J - É possível identificar a data e o valor das movimentaçõe financeiras do CPGF, em todas as movimentações? Ou há movimentações onde não é possível identificar as datas e ou valores?**
+
+O valores das movimentações estão identificados em todos os casos, porém, nos casos de sigilo, a data da transação está em branco.
+
+![image](https://user-images.githubusercontent.com/93266575/150016957-ff203464-a192-427d-8427-ca396442056a.png)
+
+
+
 
