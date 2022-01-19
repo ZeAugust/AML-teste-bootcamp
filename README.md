@@ -76,6 +76,37 @@ O valores das movimentações estão identificados em todos os casos, porém, no
 
 ![image](https://user-images.githubusercontent.com/93266575/150016957-ff203464-a192-427d-8427-ca396442056a.png)
 
+##Código
+
+**K - Qual a soma total das movimentações utilizando o CPGF?**
+
+As que a prtir daqui foram realizada utilizando a liguagem de programação Java.
+
+Foram utilizados alguns princípios de Programação Orientada a Objetos, por conta da conveniência na resolução dos problemas.
+
+Levando-se em conta a estrutura do documento baixado no portal da tranparência. Foi implantada uma classe com no nome de **Transaction** onde os seus atributos são os nomes, adaptadps, dos dados expostos na tabela: "CÓDIGO ÓRGÃO SUPERIOR";"NOME ÓRGÃO SUPERIOR";"CÓDIGO ÓRGÃO";"NOME ÓRGÃO";"CÓDIGO UNIDADE GESTORA";"NOME UNIDADE GESTORA";"ANO EXTRATO";"MÊS EXTRATO";"CPF PORTADOR";"NOME PORTADOR";"CNPJ OU CPF FAVORECIDO";"NOME FAVORECIDO";"TRANSAÇÃO";"DATA TRANSAÇÃO";"VALOR TRANSAÇÃO".
+
+![image](https://user-images.githubusercontent.com/93266575/150056733-e045eaf3-6795-45f6-89ff-d02e33a7e3b3.png)
+
+Também foram implementados Getters para a recuperação dos valores no programa principal.
+
+![image](https://user-images.githubusercontent.com/93266575/150056972-9e9150b9-9d3e-46ce-b20b-78ff220c2d08.png)
+
+No programa principal, denominado como **Program**, foi implementada uma lista para armzenar os objetos criados a partir da leitura do arquivo, e uma lógica para a leitura do aquivo csv, baixado no portal da transparência.
+
+![image](https://user-images.githubusercontent.com/93266575/150057533-1820692b-1c9a-4484-a384-7015c8fc63ac.png)
+
+![image](https://user-images.githubusercontent.com/93266575/150057819-135a75ee-84d4-4fb5-b98f-179046b68204.png)
+
+Por fim, para a finalização da questão, realizando a soma de todos os valores das transações, foi implementado um for of, para percorrer a lista de objetos somando os valores do compo VALOR.
+
+![image](https://user-images.githubusercontent.com/93266575/150058063-b1b3a8ee-20e4-413a-a66f-d754edfaffb8.png)
+
+**Deste modo, o valor total de todas as movimentações foi de R$5619007.95.**
+
+
+
+
 
 
 
