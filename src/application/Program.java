@@ -9,11 +9,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
+import java.util.TreeMap;
+
 import entities.Transaction;
 
 public class Program {
@@ -80,13 +81,13 @@ public class Program {
 		
 		System.out.println();
 		
-		Set<Transaction> set = new LinkedHashSet<>();
+		Map<Integer, String> map = new TreeMap<>();
 		
 		for (Transaction att : list) {
 			String firstS = new String(att.getTransactionType().replaceAll("\"", ""));
 			String secondS = new String("Informações protegidas por sigilo");
 			if(firstS.contentEquals(secondS)) {
-				set.add(att);
+				map.put(att.getAgencyCode(), att.getAgencyName());
 			}
 		}
 		
@@ -95,9 +96,9 @@ public class Program {
 		String nameMaior = null;
 		Double sumMaior = 0.0;
 		
-		for(Transaction tr : set) {
+		for(Integer agencyC : map.keySet()) {
 			int counter = 0;
-			int code = tr.getAgencyCode();
+			int code = agencyC;
 			Double sum = 0.0;
 			String name = null;
 			for (Transaction trfull : list) {
@@ -107,7 +108,6 @@ public class Program {
 					sum += trfull.getTransactionValue();
 				}
 			}
-			
 
 			if(counter > movimentacaoMaior) {
 				movimentacaoMaior = counter;
@@ -120,7 +120,45 @@ public class Program {
 		
 		System.out.println();
 		System.out.printf("O órgao que mais realizou moimentações sigilosas foi: (%d) %s com %d movimentações somando um total de R$%.2f", codeMaior, nameMaior, movimentacaoMaior, sumMaior);
+		System.out.println();
 		
+		Map<String, String> carrierMap = new TreeMap<>();
+		
+		for(Transaction tr : list) {
+			carrierMap.put(tr.getCarrierCpf(), tr.getCarrierName());
+		}
+		
+		
+		int maiorCounter = 0;
+		String maiorName = null;
+		Double maiorSumWidrawals = 0.0;
+		String maiorCarrierAgency = null;
+		for (String cpf : carrierMap.keySet()) {
+			int counter = 0;
+			String name = null;
+			Double sumWidrawals = 0.0;
+			String carrierAgency = null;
+			for (Transaction tr : list) {
+				if(cpf == tr.getCarrierCpf()) {
+					String firstS = new String(tr.getTransactionType().replaceAll("\"", ""));
+					String secondS = new String("SAQUE CASH/ATM BB");
+					if(firstS.contentEquals(secondS)) {
+						++counter;
+						sumWidrawals += tr.getTransactionValue();
+						name = tr.getCarrierName();
+						carrierAgency = tr.getAgencyName();
+					}
+				}
+			}
+			if(counter > maiorCounter) {
+				maiorCounter = counter;
+				maiorName = name;
+				maiorSumWidrawals = sumWidrawals;
+				maiorCarrierAgency = carrierAgency;	
+			}
+		}
+		
+		System.out.printf("O portador(a) que mais realizou saques foi %s com um total de R$%.2f em %d saques pertencente ao Órgao %s", maiorName, maiorSumWidrawals, maiorCounter, maiorCarrierAgency);
 		
 		sc.close();
 	}
