@@ -119,11 +119,5 @@ public class Transaction {
 			return false;
 		Transaction other = (Transaction) obj;
 		return Objects.equals(agencyCode, other.agencyCode);
-	}
-
-	
-
-
-	
-	
+	}	
 }

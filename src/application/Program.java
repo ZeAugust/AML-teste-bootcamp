@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.Set;
-
 import entities.Transaction;
 
 public class Program {
