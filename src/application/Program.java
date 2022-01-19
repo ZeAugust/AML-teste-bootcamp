@@ -78,8 +78,11 @@ public class Program {
 			}
 			System.out.printf("A soma das movimentações sigilosas é de R$%.2f", totalSum);
 		}
-		
 		System.out.println();
+		
+		
+		
+		
 		
 		Map<Integer, String> map = new TreeMap<>();
 		
@@ -119,35 +122,47 @@ public class Program {
 		}
 		
 		System.out.println();
-		System.out.printf("O órgao que mais realizou moimentações sigilosas foi: (%d) %s com %d movimentações somando um total de R$%.2f", codeMaior, nameMaior, movimentacaoMaior, sumMaior);
+		System.out.printf("O órgao que mais realizou movimentações sigilosas foi: (%d) %s com %d movimentações somando um total de R$%.2f", codeMaior, nameMaior, movimentacaoMaior, sumMaior);
 		System.out.println();
 		
+		
+		
+		
+		
 		Map<String, String> carrierMap = new TreeMap<>();
-		
+			
 		for(Transaction tr : list) {
+			String firstS = new String(tr.getTransactionType().replaceAll("\"", ""));
+			String secondS = new String("SAQUE CASH/ATM BB");
+			if(firstS.contentEquals(secondS)) {
 			carrierMap.put(tr.getCarrierCpf(), tr.getCarrierName());
+			}
 		}
-		
 		
 		int maiorCounter = 0;
 		String maiorName = null;
 		Double maiorSumWidrawals = 0.0;
 		String maiorCarrierAgency = null;
+		int maiorCounterDes = 0;
+		String maiorNameDes = null;
+		Double maiorSumWidrawalsDes = 0.0;
+		String maiorCarrierAgencyDes = null;
+		
 		for (String cpf : carrierMap.keySet()) {
 			int counter = 0;
+			int counterDes = 0;
+			String code = cpf;
 			String name = null;
 			Double sumWidrawals = 0.0;
+			Double sumWidrawalsDes = 0.0;
 			String carrierAgency = null;
 			for (Transaction tr : list) {
-				if(cpf == tr.getCarrierCpf()) {
-					String firstS = new String(tr.getTransactionType().replaceAll("\"", ""));
-					String secondS = new String("SAQUE CASH/ATM BB");
-					if(firstS.contentEquals(secondS)) {
-						++counter;
-						sumWidrawals += tr.getTransactionValue();
-						name = tr.getCarrierName();
-						carrierAgency = tr.getAgencyName();
-					}
+				if(tr.getCarrierCpf().contentEquals(code)) {
+				
+					++counter;
+					sumWidrawals += tr.getTransactionValue();
+					name = tr.getCarrierName();
+					carrierAgency = tr.getAgencyName();
 				}
 			}
 			if(counter > maiorCounter) {
@@ -156,10 +171,80 @@ public class Program {
 				maiorSumWidrawals = sumWidrawals;
 				maiorCarrierAgency = carrierAgency;	
 			}
+			
+			String string = new String("Sigiloso");
+			String secondString = new String("SEM INFORMACAO");
+
+			for (Transaction tr : list) {
+				if(tr.getCarrierCpf().contentEquals(code) && !(tr.getCarrierName().contentEquals(string)) && !(tr.getCarrierName().contentEquals(secondString))) {
+				
+					++counterDes;
+					sumWidrawalsDes += tr.getTransactionValue();
+					name = tr.getCarrierName();
+					carrierAgency = tr.getAgencyName();
+				}
+			}
+			if(counterDes > maiorCounterDes) {
+				maiorCounterDes = counterDes;
+				maiorNameDes = name;
+				maiorSumWidrawalsDes = sumWidrawalsDes;
+				maiorCarrierAgencyDes = carrierAgency;	
+			}
+
 		}
 		
-		System.out.printf("O portador(a) que mais realizou saques foi %s com um total de R$%.2f em %d saques pertencente ao Órgao %s", maiorName, maiorSumWidrawals, maiorCounter, maiorCarrierAgency);
+		System.out.printf("O portador(a) que mais realizou saques foi %s com um total de R$%.2f em %d saques pertencente ao Órgao %s\n", maiorName, maiorSumWidrawals, maiorCounter, maiorCarrierAgency);
+		System.out.printf("(DESCONSIDERANDO: Sigiloso e SEM INFORMACAO)O portador(a) que mais realizou saques foi %s com um total de R$%.2f em %d saques pertencente ao Órgao %s\n", maiorNameDes, maiorSumWidrawalsDes, maiorCounterDes, maiorCarrierAgencyDes);
 		
+		
+		
+		
+		Map<String, String> favoredMap = new TreeMap<>();
+		
+		for(Transaction tr : list) {
+			String firstS = new String(tr.getTransactionType().replaceAll("\"", ""));
+			String secondS = new String("COMPRA A/V - R$ - APRES");
+			if(firstS.contentEquals(secondS)) {
+				favoredMap.put(tr.getFavoredCpfCnpj(), tr.getFavoredName());
+			}
+		}
+		
+		int maiorFavoredCounter = 0;
+		String maiorFavoredName = null;
+		int maiorFavoredCounterDes = 0;
+		String maiorFavoredNameDes = null;
+		for (String cpfCnpj : favoredMap.keySet()) {
+			int counter = 0;
+			int counterDes = 0;
+			String code = cpfCnpj;
+			String name = null;
+			for(Transaction tr : list) {
+				if(tr.getFavoredCpfCnpj().contentEquals(code)){
+					++counter;
+					name = tr.getFavoredName();
+				}
+			}
+			if(counter > maiorFavoredCounter) {
+				maiorFavoredCounter = counter;
+				maiorFavoredName = name;
+			}
+			
+			String string = new String("SEM INFORMACAO");
+			for(Transaction tr : list) {
+				if(tr.getFavoredCpfCnpj().contentEquals(code) && !(tr.getFavoredName().contentEquals(string))){
+					++counterDes;
+					name = tr.getFavoredName();
+				}
+			}
+			if(counterDes > maiorFavoredCounterDes) {
+				maiorFavoredCounterDes = counterDes;
+				maiorFavoredNameDes = name;
+			}
+		}
+		
+		System.out.printf("O nome do favorecido que mais teve compras realizadas é %s com %d compras\n", maiorFavoredName, maiorFavoredCounter);
+		System.out.printf("(DESCONSIDERANDO: SEM INFORMACAO)O nome do favorecido que mais teve compras realizadas é %s com %d compras\n", maiorFavoredNameDes, maiorFavoredCounterDes);
+
 		sc.close();
 	}
 	
