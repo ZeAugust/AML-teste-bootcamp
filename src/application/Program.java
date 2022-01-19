@@ -64,7 +64,17 @@ public class Program {
 			for(Transaction att : list) {
 				totalSum += att.getTransactionValue();
 			}
-			System.out.printf("A soma total das movimentações utilizando o CPGF foi de: R$%.2f",totalSum);
+			System.out.printf("A soma total das movimentações utilizando o CPGF é de: R$%.2f\n",totalSum);
+			
+			totalSum = 0.0;
+			for(Transaction att : list) {
+				String firstS = new String(att.getTransactionType().replaceAll("\"", ""));
+				String secondS = new String("Informações protegidas por sigilo");
+				if(firstS.contentEquals(secondS)) {
+					totalSum += att.getTransactionValue();
+				}
+			}
+			System.out.printf("A soma das movimentações sigilosas é de R$%.2f", totalSum);
 		}
 		
 		sc.close();
