@@ -80,11 +80,11 @@ O valores das movimentações estão identificados em todos os casos, porém, no
 
 **K - Qual a soma total das movimentações utilizando o CPGF?**
 
-As que a prtir daqui foram realizada utilizando a liguagem de programação Java.
+As questões a partir daqui foram realizada utilizando a liguagem de programação Java.
 
 Foram utilizados alguns princípios de Programação Orientada a Objetos, por conta da conveniência na resolução dos problemas.
 
-Levando-se em conta a estrutura do documento baixado no portal da tranparência. Foi implantada uma classe com no nome de **Transaction** onde os seus atributos são os nomes, adaptadps, dos dados expostos na tabela: "CÓDIGO ÓRGÃO SUPERIOR";"NOME ÓRGÃO SUPERIOR";"CÓDIGO ÓRGÃO";"NOME ÓRGÃO";"CÓDIGO UNIDADE GESTORA";"NOME UNIDADE GESTORA";"ANO EXTRATO";"MÊS EXTRATO";"CPF PORTADOR";"NOME PORTADOR";"CNPJ OU CPF FAVORECIDO";"NOME FAVORECIDO";"TRANSAÇÃO";"DATA TRANSAÇÃO";"VALOR TRANSAÇÃO".
+Levando-se em conta a estrutura do documento baixado no portal da tranparência. Foi implantada uma classe com no nome de [**Transaction**](src/entities/Transaction.java) onde os seus atributos são os nomes, adaptadps, dos dados expostos na tabela: "CÓDIGO ÓRGÃO SUPERIOR";"NOME ÓRGÃO SUPERIOR";"CÓDIGO ÓRGÃO";"NOME ÓRGÃO";"CÓDIGO UNIDADE GESTORA";"NOME UNIDADE GESTORA";"ANO EXTRATO";"MÊS EXTRATO";"CPF PORTADOR";"NOME PORTADOR";"CNPJ OU CPF FAVORECIDO";"NOME FAVORECIDO";"TRANSAÇÃO";"DATA TRANSAÇÃO";"VALOR TRANSAÇÃO".
 
 ![image](https://user-images.githubusercontent.com/93266575/150056733-e045eaf3-6795-45f6-89ff-d02e33a7e3b3.png)
 
@@ -92,7 +92,7 @@ Também foram implementados Getters para a recuperação dos valores no programa
 
 ![image](https://user-images.githubusercontent.com/93266575/150056972-9e9150b9-9d3e-46ce-b20b-78ff220c2d08.png)
 
-No programa principal, denominado como **Program**, foi implementada uma lista para armzenar os objetos criados a partir da leitura do arquivo, e uma lógica para a leitura do aquivo csv, baixado no portal da transparência.
+No [programa principal](src/application/Program.java), denominado como **Program**, foi implementada uma lista para armzenar os objetos criados a partir da leitura do arquivo, e uma lógica para a leitura do aquivo csv, baixado no portal da transparência.
 
 ![image](https://user-images.githubusercontent.com/93266575/150057533-1820692b-1c9a-4484-a384-7015c8fc63ac.png)
 
@@ -104,6 +104,13 @@ Por fim, para a finalização da questão, realizando a soma de todos os valores
 
 **Deste modo, o valor total de todas as movimentações foi de R$5619007.95.**
 
+**L - Qual a soma das movimentações sigilosas?**
+
+Para a realização da soma desses valores em específico, foi utilizado um for of para percorrer a lista e a soma dos valores está condicionada a verificação da frase "Informações protegidas por sigilo" no campo TRANSAÇÂO.
+
+![image](https://user-images.githubusercontent.com/93266575/150059126-1598d6a1-ea94-42da-bafc-98c86f12f498.png)
+
+**Deste modo, a soma das movimentações sigilosas foi de R$3108731.15.**
 
 
 
