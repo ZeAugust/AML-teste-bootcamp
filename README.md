@@ -51,7 +51,7 @@ Existem movimentações onde não é possível a identificação do nome e nem d
 
 **G - É possível identificar o Órgão do portador do CPGF?**
 
-Sim. o Órgão do qual o portador é servidor está identificado com Órgão Subordinado.
+Sim. O Órgão no qual o portador é servidor está identificado com Órgão Subordinado.
 
 **H - Qual o nome do cujo código é 20402?**
 
