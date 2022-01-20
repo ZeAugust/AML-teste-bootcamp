@@ -84,7 +84,7 @@ O valores das movimentações estão identificados em todos os casos, porém, no
 
 **L - Qual a soma das movimentações sigilosas?**
 
-**Deste modo, a soma das movimentações sigilosas foi de R$3108731.15.**
+**A soma das movimentações sigilosas foi de R$3108731.15.**
 
 **M - Qual o Órgão que mais realizou movimentações sigilosas no periodo e qual o valor (somado)?**
 
