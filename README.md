@@ -126,7 +126,7 @@ Por fim, para a finalização da questão K, realizando a soma de todos os valor
 
 ![image](https://user-images.githubusercontent.com/93266575/150058063-b1b3a8ee-20e4-413a-a66f-d754edfaffb8.png)
 
-Para a realização da soma desses valores em específico, foi utilizado um for of para percorrer a lista e a soma dos valores está condicionada a verificação da frase "Informações protegidas por sigilo" no campo TRANSAÇÂO.
+Para a realização da soma dos valores das transações sigilosas, foi utilizado um for of para percorrer a lista e a soma dos valores está condicionada a verificação da frase "Informações protegidas por sigilo" no campo TRANSAÇÂO.
 
 ![image](https://user-images.githubusercontent.com/93266575/150059126-1598d6a1-ea94-42da-bafc-98c86f12f498.png)
 
